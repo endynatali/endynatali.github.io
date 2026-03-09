@@ -23,47 +23,82 @@
         <meta name="keywords" content="Endy Nátali, digital artist, artista digital, modelagem 3D, animação 3D, animação 2D, game design, Lody">
         <meta name="author" content="Endy Nátali Bächtold Smolski Chapuis">
         <link rel="canonical" href="https://endy.com.br">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            .site-fixed-bg {
+                position: fixed;
+                inset: 0;
+                z-index: 0;
+            }
+            .page-shell {
+                position: relative;
+                z-index: 1;
+                display: flow-root;
+                min-height: 100dvh;
+            }
+            .mobile-content-offset {
+                padding-bottom: 74px;
+            }
+            .page-surface {
+                background-color: transparent;
+            }
+            .dark .page-surface {
+                background-color: transparent;
+            }
+            .mobile-page-surface {
+                background-color: rgba(255, 255, 255, 0.92);
+                border-radius: 1rem;
+                margin: 0.75rem;
+            }
+            .dark .mobile-page-surface {
+                background-color: rgba(17, 17, 17, 0.92);
+            }
+            .mobile-bottom-nav {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 9999;
+            }
+            .mobile-bottom-nav-list {
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+            }
+            .mobile-bottom-nav-list li {
+                flex: 1 1 25%;
+            }
+            @media (min-width: 1024px) {
+                .page-shell {
+                    min-height: 100vh;
+                }
+                .mobile-content-offset {
+                    padding-bottom: 0;
+                }
+                .mobile-bottom-nav {
+                    display: none;
+                }
+                .page-surface {
+                    background-color: #ffffff;
+                    border-radius: 1rem;
+                }
+                .dark .page-surface {
+                    background-color: #111111;
+                }
+                .mobile-page-surface {
+                    margin: 0;
+                }
+            }
+        </style>
     </head>
 
     <body>
-        <div class="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
-            <div class="section-bg">
-                <div class="w-full flex justify-between px-4">
-                    <div class="flex items-center">
-                        <button id="menu-toggle" type="button" class="menu-toggle-btn">
-                            <i id="menu-toggle-open-icon" class="fa-solid fa-bars text-xl "></i>
-                            <i id="menu-toggle-close-icon" class="fa-solid fa-xmark text-xl hidden  "></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <nav id="navbar" class="hidden lg:hidden">
-                <ul
-                    class="block rounded-b-[20px] shadow-md absolute left-0 top-20 z-[22222222222222] w-full bg-white dark:bg-[#1d1d1d]">
-                    <li>
-                        <a class="mobile-menu-items" href="/atividades">
-                            <span class="mr-2 text-xl">
-                                <i class="fa-regular fa-lightbulb"></i>
-                            </span>Atividades</a>
-                    </li>
-                    <li>
-                        <a class="mobile-menu-items" href="/dominio">
-                            <span class="mr-2 text-xl">
-                                <i class="fa-regular fa-file-lines"></i>
-                            </span>Domínio</a>
-                    </li>
-                    <li>
-                        <a class="mobile-menu-items-active" href="/">
-                            <span class="mr-2 text-xl">
-                                <i class="fa-regular fa-user"></i>
-                            </span>Sobre</a>
-                    </li>
-                    
-                </ul>
-            </nav>
-
-            <div class="container grid grid-cols-12 md:gap-10 justify-between lg:mt-[220px]">
+        <div class="site-fixed-bg bg-homeBg dark:bg-homeTwoBg-dark bg-no-repeat bg-center bg-cover"></div>
+        <div class="page-shell min-h-screen md:pb-16 w-full">
+            <div class="container grid grid-cols-12 md:gap-10 justify-between lg:mt-[220px] mobile-content-offset">
                 <div class="col-span-12 lg:col-span-4 hidden lg:block h-screen sticky top-44">
                     <div class="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
     <img src="/images/about/avatar.jpg"
@@ -122,9 +157,9 @@
 
                     
     <div>
-        <div class="lg:rounded-2xl bg-white dark:bg-[#111111]">
+        <div class="page-surface">
             <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
-                <h2 class="after-effect after:left-60">Sobre mim</h2>
+                <h2 class="after-effect after:left-60 hidden lg:block">Sobre mim</h2>
                 <div class="lg:hidden">
                     <div class="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
     <img src="/images/about/avatar.jpg"
@@ -152,7 +187,7 @@
 
                 <div class="lg:grid grid-cols-12 md:gap-10 pt-4 md:pt-[30px] items-center hidden">
                     <div class="col-span-12 space-y-2.5">
-                        <div class="lg:mr-16" style="text-align: justify;">
+                        <div style="text-align: justify;">
                             <p class="text-[#44566c] dark:text-color-910 leading-7">  
                                 Minha jornada na arte e no design começou quando me formei em <strong>Design de Interiores</strong> em 2012, onde me apaixonei por criar ambientes funcionais e esteticamente agradáveis. Durante esse tempo, me especializei em <strong>modelagem 3D</strong> para planejamento de móveis, o que me deu uma base sólida para trabalhar com detalhes e formas no ambiente digital.  
                             </p>  
@@ -182,17 +217,46 @@
 
             </div>
 
-            <footer class="overflow-hidden rounded-b-2xl" style="background: transparent">
+        </div>
+        <footer class="overflow-hidden rounded-b-2xl" style="background: transparent">
     <p class="text-center py-6 text-gray-lite dark:text-color-910"> 
-        Feito and hospedado com <i class="fa fa-heart" style="color: #e25555;;"></i> usando
+        Feito e hospedado com <i class="fa fa-heart" style="color: #e25555;;"></i> usando
                     <a href="https://gohugo.io/" target="_BLANK" class="black">Hugo</a> e <a href="https://pages.github.com/" target="_BLANK" class="black">Github Pages</a>. &copy; 2025-2026</p>
     </p>
 </footer>
-        </div>
     </div>
 
                 </div>
             </div>
+
+            <nav class="mobile-bottom-nav bg-white dark:bg-[#111111] border-t border-[#e6e6e6] dark:border-[#212425]">
+                <ul class="mobile-bottom-nav-list">
+                    <li>
+                        <a class="flex flex-col items-center justify-center py-2 text-xs text-[#F95054]" href="/">
+                            <i class="fa-solid fa-house text-base mb-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex flex-col items-center justify-center py-2 text-xs text-[#44566c] dark:text-[#A6A6A6]" href="/atividades">
+                            <i class="fa-solid fa-lightbulb text-base mb-1"></i>
+                            Atividades
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex flex-col items-center justify-center py-2 text-xs text-[#44566c] dark:text-[#A6A6A6]" href="/dominio">
+                            <i class="fa-solid fa-file-lines text-base mb-1"></i>
+                            Domínio
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex flex-col items-center justify-center py-2 text-xs text-[#44566c] dark:text-[#A6A6A6]" href="/sobre">
+                            <i class="fa-solid fa-user text-base mb-1"></i>
+                            Sobre
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
         <script src="/js/vendor/jquery.min.js"></script>
